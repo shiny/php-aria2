@@ -11,8 +11,12 @@ you can add below into /etc/rc.local
 
 ## How To
 the php-aria2 is simple and just 45 lines.
+
+Now it's on https://packagist.org/packages/daijie/aria2 `composer require daijie/aria2`
+
+Thanks to [Yuav](https://github.com/Yuav/php-aria2)
+
 ### Examples
-	include 'Aria2.php';
 	$aria2 = new Aria2('http://127.0.0.1:6800/jsonrpc'); //this value is the default,you can leave it empty.
 	var_dump($aria2->getGlobalStat());
 	var_dump($aria2->tellActive());
