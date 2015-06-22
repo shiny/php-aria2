@@ -12,8 +12,8 @@ you can add below into /etc/rc.local
 ## How To
 the php-aria2 is simple and just 45 lines.
 ### Examples
-	include 'aria2.class.php';
-	$aria2 = new aria2('http://127.0.0.1:6800/jsonrpc'); //this value is the default,you can leave it empty.
+	include 'Aria2.php';
+	$aria2 = new Aria2('http://127.0.0.1:6800/jsonrpc'); //this value is the default,you can leave it empty.
 	var_dump($aria2->getGlobalStat());
 	var_dump($aria2->tellActive());
 	var_dump($aria2->tellWaiting(0,1000));
@@ -25,7 +25,7 @@ the php-aria2 is simple and just 45 lines.
 	var_dump($aria2->removeDownloadResult('1'));
 	//and more ...
 
-you can read  [http://aria2.sourceforge.net/manual/en/html/aria2c.html#rpc-interface](the the document of aria2)
+you can read  [the the document of aria2](http://aria2.sourceforge.net/manual/en/html/aria2c.html#rpc-interface)
 
 ### Download a File
 
