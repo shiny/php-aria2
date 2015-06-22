@@ -10,10 +10,10 @@ you can add below into /etc/rc.local
 > the document of aria2 is [here](http://aria2.sourceforge.net/manual/en/html/aria2c.html#rpc-interface)
 
 ## How To
-the php-aria2 is simple and just 31 lines.
+the php-aria2 is simple and just 45 lines.
 ### Examples
 	include 'aria2.class.php';
-	$aria2 = new aria2('http://127.0.0.1:6800/jsonrpc'); //this value is the default value,you can leave it empty.
+	$aria2 = new aria2('http://127.0.0.1:6800/jsonrpc'); //this value is the default,you can leave it empty.
 	var_dump($aria2->getGlobalStat());
 	var_dump($aria2->tellActive());
 	var_dump($aria2->tellWaiting(0,1000));
