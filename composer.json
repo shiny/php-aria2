@@ -1,0 +1,25 @@
+{
+    "name": "daijie/aria2",
+    "type": "library",
+    "description": "talk with aria2",
+    "keywords": ["aria2"],
+    "homepage": "https://github.com/shiny/php-aria2",
+    "license": "WTFPL",
+
+    "authors": [
+        {
+            "name": "DaiJie",
+            "email": "daijie@php.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "\\": ""
+        }
+    }
+}
