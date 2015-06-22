@@ -39,6 +39,6 @@ class aria2
         if($response===false) {
             trigger_error(curl_error($this->ch));
         }
-        return json_decode(, 1);
+        return json_decode($response, 1);
     }
 }
