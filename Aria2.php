@@ -1,5 +1,5 @@
 <?php
-class aria2
+class Aria2
 {
     protected $server;
     protected $ch;
