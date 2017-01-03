@@ -1,46 +1,52 @@
 php-aria2
 =========
-# talk with aria2 using json-RPC
+# Talk with aria2 using json-RPC
 
-## make sure aria2c is running
-you can add below into /etc/rc.local
+## Make sure aria2c is running
+You can add this into /etc/rc.local
 `/usr/local/bin/aria2c --enable-rpc --rpc-allow-origin-all -c -D`
 
 
-> the document of aria2 is [here](http://aria2.sourceforge.net/manual/en/html/aria2c.html#rpc-interface)
+> [Also See The Document of Aria2](https://aria2.github.io/manual/en/html/aria2c.html#rpc-interface)
 
-## How To
-the php-aria2 is simple and just 45 lines.
+## Usage
+The php-aria2 is simple and just 45 lines.
 
-Now it's on https://packagist.org/packages/daijie/aria2 `composer require daijie/aria2`
+Now it's on https://packagist.org/packages/daijie/aria2 
 
-Thanks to [Yuav](https://github.com/Yuav/php-aria2)
+`composer require daijie/aria2`
+
+> Thanks to [@Yuav](https://github.com/Yuav)
 
 ### Examples
-	$aria2 = new Aria2('http://127.0.0.1:6800/jsonrpc'); //this value is the default,you can leave it empty.
-	var_dump($aria2->getGlobalStat());
-	var_dump($aria2->tellActive());
-	var_dump($aria2->tellWaiting(0,1000));
-	var_dump($aria2->tellStopped(0,1000));
-	var_dump($aria2->addUri(array('https://www.google.com.hk/images/srpr/logo3w.png'),array(
-	    'dir'=>'/tmp',
-	)));
-	var_dump($aria2->tellStatus('1'));
-	var_dump($aria2->removeDownloadResult('1'));
+	$aria2 = new Aria2('http://127.0.0.1:6800/jsonrpc'); 
+    // http://127.0.0.1:6800/jsonrpc is the default value, 
+    // equals to $aria2 = new Aria2
+	$aria2->getGlobalStat();
+	$aria2->tellActive();
+	$aria2->tellWaiting(0,1000);
+	$aria2->tellStopped(0,1000);
+	$aria2->addUri(
+		['https://www.google.com.hk/images/srpr/logo3w.png'],
+		['dir'=>'/tmp']
+	);
+	$aria2->tellStatus('1');
+	$aria2->removeDownloadResult('1');
 	//and more ...
 
-you can read  [the the document of aria2](http://aria2.sourceforge.net/manual/en/html/aria2c.html#rpc-interface)
+Also See  [Manual of Aria2 RPC Interface](https://aria2.github.io/manual/en/html/aria2c.html#rpc-interface)
 
-### Download a File
+### Download File
 
-	var_dump($aria2->addUri(array('https://www.google.com.hk/images/srpr/logo3w.png'),array(
-		'dir'=>'/tmp',
-		)));
+	$aria2->addUri(
+		['https://www.google.com.hk/images/srpr/logo3w.png'],
+		['dir'=>'/tmp']
+	);
 
-[http://aria2.sourceforge.net/manual/en/html/aria2c.html#input-file](More Options is Here)
+[https://aria2.github.io/manual/en/html/aria2c.html#input-file](More Options Here)
 
-### Returned Data Examples
-*Can't Download*
+### Returned Data
+#### Case: `Can't Download`
 
 	array(3) {
 	  ["id"]=>
@@ -102,7 +108,7 @@ you can read  [the the document of aria2](http://aria2.sourceforge.net/manual/en
 	  }
 	}
 
-*Downloading (Active)*
+#### Case: `Downloading (Active)`
 
 	array(3) {
 	  ["id"]=>
@@ -192,7 +198,7 @@ you can read  [the the document of aria2](http://aria2.sourceforge.net/manual/en
 	  }
 	}
 
-*Downloaded*
+#### Case: `Downloaded`
 	
 	array(3) {
 	  ["id"]=>
