@@ -1,10 +1,10 @@
 php-aria2
 =========
-# Talk with aria2 using json-RPC
+# Talking with [aria2](https://aria2.github.io/) through JSON-RPC
 
 ## Install
 
-### 1. Install aria2c
+### 1. [Install aria2c](https://aria2.github.io/)
 
 Make sure aria2c is running and rpc is enabled, You can add this into /etc/rc.local
 `/usr/local/bin/aria2c --enable-rpc --rpc-allow-origin-all -c -D`
@@ -12,7 +12,7 @@ Make sure aria2c is running and rpc is enabled, You can add this into /etc/rc.lo
 
 ### 2. Require Aria2.php
 
-The codes just 50 lines but support all RPC methods. Using php's magic method `__call`
+The codes just 82 lines but support all RPC methods. Using php's magic method `__call`
 
 #### 2.1 Install by composer
 `composer require daijie/aria2`
@@ -23,6 +23,9 @@ The codes just 50 lines but support all RPC methods. Using php's magic method `_
 
 ## Docker playground
 #### require [docker-compose](https://docs.docker.com/compose/install/)
+
+Docker playground: nginx (17 MB) + php7-fpm (82 MB) + aria2c (6 MB)
+
 #### init playground
 
 
@@ -80,6 +83,9 @@ Aria2 {
     __construct ( string $server [, string $token ] )
     __destruct ( void )
     __call(string $name, array $arg)
+    public Object batch( [Callable $func ] )
+    public bool inBatch( void )
+    public array commit( void )
     protected string req ( array $data )
 }
 ```
@@ -101,9 +107,68 @@ Aria2 {
 	$aria2->removeDownloadResult('1');
 	//and more ...
 
-Also See  [Manual of Aria2 RPC Interface to get the method list](https://aria2.github.io/manual/en/html/aria2c.html#rpc-interface)
+Also See  [Manual of Aria2 RPC Interface To Get The Method List](https://aria2.github.io/manual/en/html/aria2c.html#rpc-interface)
+
+### Batch requests
+ Now php-aria2 support [JSON-RPC 2.0 Specification Batch requests](https://aria2.github.io/manual/en/html/aria2c.html#system.multicall)
+In v1.2.0 batch requests have been introduced.
+
+- `Aria2::batch` - Start batch mode
+- `Aria2::inBatch` - Detect batch mode
+- `Aria2::commit` - End batch mode and commit commands
+
+```
+$aria2 = new Aria2('http://127.0.0.1:6800/jsonrpc');
+$aria2->batch()
+      ->getGlobalStat()
+      ->tellActive()
+      ->tellWaiting(0,1000)
+      ->tellStopped(0,1000)
+      ->addUri(
+			['https://www.google.com.hk/images/srpr/logo3w.png'],
+			['dir'=>'/tmp']
+		)
+		->commit();
+```	
+Another ways is anonymous function, it also support method chaining. Don't forget commit.
+
+```
+    $aria2 = new Aria2('http://aria2:6800/jsonrpc', "token:e6c3778f-6361-4ed0-b126-f2cf8fca06db");
+	$aria2->batch(function($aria2){
+    	$aria2->getGlobalStat();
+    	$aria2->system_listMethods();
+	});
+	$status = $aria2->commit();
+```
+
+### System methods
+
+- system.multicall
+- system.listMethods
+- system.listNotifications
+
+There are some system methods, you can call it using
+
+- Aria2::system_multicall
+- Aria2::system_listMethods
+- Aria2::system_listNotifications
+
+php-aria2 convert `_` to `.` automatically. If method name without a `_`,  php-aria2 will auto prepend a `aria2.`
+
+```
+$aria2 = new Aria2('http://127.0.0.1:6800/jsonrpc');
+$aria2->system_listMethods();
+$aria2->getGlobalStat();
+```
+
 
 ## Updates
+
+### v1.2.0b
+
+- Add system methods
+- Add batch mode
+
 ### v1.1
 Now support default token(secret) in php-aria2, compatible with v1.0
 
@@ -388,3 +453,6 @@ After
 	    string(1) "0"
 	  }
 	}
+
+## Credits
+Dai Jie <daijie@php.net>
