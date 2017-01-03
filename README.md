@@ -1,3 +1,4 @@
+
 php-aria2
 =========
 # Talking with [aria2](https://aria2.github.io/) through JSON-RPC
@@ -74,7 +75,7 @@ for China user we suggest use the phpcomposer mirror
                 ├── README.md
                 └── composer.json
 ```
-Edit www/index.php and Open Browser To Visit http://127.0.0.1
+Edit www/index.php and Open Browser To Visit http://127.0.0.1:8080
 
 ## Class Aria2
 
@@ -93,8 +94,8 @@ Aria2 {
 ## Usage
 
 	$aria2 = new Aria2('http://127.0.0.1:6800/jsonrpc'); 
-    // http://127.0.0.1:6800/jsonrpc is the default value, 
-    // equals to $aria2 = new Aria2
+	// http://127.0.0.1:6800/jsonrpc is the default value, 
+	// equals to $aria2 = new Aria2
 	$aria2->getGlobalStat();
 	$aria2->tellActive();
 	$aria2->tellWaiting(0,1000);
@@ -129,7 +130,7 @@ $aria2->batch()
 			['dir'=>'/tmp']
 		)
 		->commit();
-```	
+```
 Another ways is anonymous function, it also support method chaining. Don't forget commit.
 
 ```
@@ -359,7 +360,7 @@ After
 	}
 
 #### Case: `Downloaded`
-	
+
 	array(3) {
 	  ["id"]=>
 	  string(1) "1"
