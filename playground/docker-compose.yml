@@ -1,0 +1,24 @@
+version: '2'
+services:
+  aria2:
+    image: vimagick/aria2
+    volumes:
+      - "./data:/home/aria2"
+      - "./aria2.conf:/etc/aria2/aria2.conf"
+    environment:
+      - TOKEN=e6c3778f-6361-4ed0-b126-f2cf8fca06db
+  php:
+    image: daijie/php7-alpine
+    depends_on:
+      - aria2
+    volumes:
+      - ./www:/var/www
+  nginx:
+    image: nginx:1-alpine
+    depends_on:
+      - php
+    ports: 
+      - 8080:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./www:/var/www

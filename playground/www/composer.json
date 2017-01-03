@@ -1,0 +1,5 @@
+{
+    "require": {
+        "daijie/aria2": "^1.0"
+    }
+}

@@ -36,6 +36,48 @@ Now it's on https://packagist.org/packages/daijie/aria2
 
 Also See  [Manual of Aria2 RPC Interface](https://aria2.github.io/manual/en/html/aria2c.html#rpc-interface)
 
+### Docker playground (require docker-compose)
+
+#### init playground
+
+```
+git clone https://github.com/shiny/php-aria2/
+cd php-aria2/playground
+docker-compose up
+docker-compose exec php composer require daijie/aria2
+```
+
+#### After that, the playground dir structure:
+
+```
+├── aria2.conf # Aria2 conf file
+├── data # Store downloaded file
+├── docker-compose.yml
+├── nginx.conf # nginx conf
+└── www # Web dir
+    ├── composer.json
+    ├── composer.lock
+    ├── index.php
+    └── vendor
+        ├── autoload.php
+        ├── composer
+        │   ├── ClassLoader.php
+        │   ├── LICENSE
+        │   ├── autoload_classmap.php
+        │   ├── autoload_namespaces.php
+        │   ├── autoload_psr4.php
+        │   ├── autoload_real.php
+        │   ├── autoload_static.php
+        │   └── installed.json
+        └── daijie
+            └── aria2
+                ├── Aria2.php
+                ├── LICENSE.txt
+                ├── README.md
+                └── composer.json
+```
+Edit www/index.php and Open Browser To Visit http://127.0.0.1
+
 ### Download File
 
 	$aria2->addUri(
