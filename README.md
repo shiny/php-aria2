@@ -43,7 +43,7 @@ Also See  [Manual of Aria2 RPC Interface](https://aria2.github.io/manual/en/html
 		['dir'=>'/tmp']
 	);
 
-[https://aria2.github.io/manual/en/html/aria2c.html#input-file](More Options Here)
+[More Options Here](https://aria2.github.io/manual/en/html/aria2c.html#input-file)
 
 ### Returned Data
 #### Case: `Can't Download`
