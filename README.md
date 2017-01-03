@@ -166,7 +166,6 @@ $aria2->getGlobalStat();
 
 ### v1.2.1b
 - add batch anonymous function
-- 
 
 ### v1.2.0b
 
