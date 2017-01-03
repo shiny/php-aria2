@@ -2,8 +2,9 @@
 class Aria2
 {
     protected $ch;
+    protected $token;
     
-    function __construct($server='http://127.0.0.1:6800/jsonrpc')
+    function __construct($server='http://127.0.0.1:6800/jsonrpc', $token=null)
     {
         $this->ch = curl_init($server);
         curl_setopt_array($this->ch, [
@@ -11,6 +12,9 @@ class Aria2
             CURLOPT_RETURNTRANSFER=>true,
             CURLOPT_HEADER=>false
         ]);
+        if(!is_null($token)) {
+            $this->token = $token;
+        }
     }
     
     function __destruct()
@@ -26,6 +30,9 @@ class Aria2
     
     function __call($name, $arg)
     {
+        if(!is_null($this->token)) {
+            array_unshift($arg, 'token:'.$this->token);
+        }
         $data = [
             'jsonrpc'=>'2.0',
             'id'=>'1',
