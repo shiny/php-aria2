@@ -25,12 +25,22 @@ The codes just 50 lines but support all RPC methods. Using php's magic method `_
 #### require [docker-compose](https://docs.docker.com/compose/install/)
 #### init playground
 
-```
-git clone https://github.com/shiny/php-aria2/
-cd php-aria2/playground
-docker-compose up
-docker-compose exec php composer require daijie/aria2
-```
+
+    git clone https://github.com/shiny/php-aria2/
+    cd php-aria2/playground
+    docker-compose up
+
+then open another terminal and enter playground
+
+    docker-compose exec php composer require daijie/aria2
+
+for China user we suggest use the phpcomposer mirror
+
+
+    docker-compose exec php composer config repo.packagist composer https://packagist.phpcomposer.com
+    docker-compose exec php composer require daijie/aria2
+
+
 
 #### After that, the playground structure:
 
@@ -67,10 +77,10 @@ Edit www/index.php and Open Browser To Visit http://127.0.0.1
 
 ```
 Aria2 {
-__construct ( string $server [, string $token ] )
-__destruct ( void )
-__call(string $name, array $arg)
-protected string req ( array $data )
+    __construct ( string $server [, string $token ] )
+    __destruct ( void )
+    __call(string $name, array $arg)
+    protected string req ( array $data )
 }
 ```
 
