@@ -28,9 +28,12 @@ class Aria2
         return curl_exec($this->ch);
     }
     
-    function batch()
+    function batch($func=null)
     {
         $this->batch = true;
+        if(is_callable($func)) {
+            $func($this);
+        }
         return $this;
     }
     
