@@ -3,6 +3,8 @@ class Aria2
 {
     protected $ch;
     protected $token;
+    protected $batch = false;
+    protected $batch_cmds = [];
     
     function __construct($server='http://127.0.0.1:6800/jsonrpc', $token=null)
     {
@@ -26,17 +28,50 @@ class Aria2
         return curl_exec($this->ch);
     }
     
+    function batch()
+    {
+        $this->batch = true;
+        return $this;
+    }
+    
+    function inBatch()
+    {
+        return $this->batch;
+    }
+    
+    function commit()
+    {
+        $this->batch = false;
+        $cmds = json_encode($this->batch_cmds);
+        $result = $this->req($cmds);
+        $this->batch_cmds = [];
+        return $result;
+    }
+    
     function __call($name, $arg)
     {
         if(!is_null($this->token)) {
-            array_unshift($arg, 'token:'.$this->token);
+            array_unshift($arg, $this->token);
         }
+        
+        //Support system methods
+        if(strpos($name, '_')===false) {
+            $name = 'aria2.'.$name;
+        } else {
+            $name = str_replace('_', '.', $name);
+        }
+        
         $data = [
             'jsonrpc'=>'2.0',
             'id'=>'1',
-            'method'=>'aria2.'.$name,
+            'method'=>$name,
             'params'=>$arg
         ];
+        //Support batch requests
+        if($this->batch) {
+            $this->batch_cmds[] = $data;
+            return $this;
+        }
         $data = json_encode($data);
         $response = $this->req($data);
         if($response===false) {
