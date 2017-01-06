@@ -359,7 +359,7 @@ Array
 )
 ```
 
-## Docker playground
+## Docker Playground
 #### require [docker-compose](https://docs.docker.com/compose/install/)
 
 Docker playground: nginx (17 MB) + php7-fpm (82 MB) + aria2c (6 MB)
