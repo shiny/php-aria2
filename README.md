@@ -67,9 +67,36 @@ $aria2->removeDownloadResult('1');
 //and more ...
 ```
 
-Also See  [Manual of Aria2 RPC Interface To Get The Method List](https://aria2.github.io/manual/en/html/aria2c.html#methods)
+#### Also See  [Manual of Aria2 RPC Interface To Get The Method List](https://aria2.github.io/manual/en/html/aria2c.html#methods)
+
+>  .i.e, It's the example from Aria2 manual wrote in Python:
+
+```python
+>>> import urllib2, json, base64
+>>> metalink = base64.b64encode(open('file.meta4').read())
+>>> jsonreq = json.dumps({'jsonrpc':'2.0', 'id':'qwer',
+...                       'method':'aria2.addMetalink',
+...                       'params':[metalink]})
+>>> c = urllib2.urlopen('http://localhost:6800/jsonrpc', jsonreq)
+>>> c.read()
+'{"id":"qwer","jsonrpc":"2.0","result":["2089b05ecca3d829"]}'
+```
+
+If you are using php with php-aria2:
+
+```php
+<?php
+require 'vendor/autoload.php';
+$metalink = file_get_contents('file.meta4');
+$aria2 = new Aria2('http://localhost:6800/jsonrpc');
+$c = $aria2->addMetalink($metalink);
+#It means the method is aria2.addMetalink
+print_r($c); 
+```
+
 
 ### Batch requests
+
  Now php-aria2 support [JSON-RPC 2.0 Specification Batch requests](https://aria2.github.io/manual/en/html/aria2c.html#system.multicall)
 In v1.2.0 batch requests have been introduced.
 
