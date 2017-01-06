@@ -136,175 +136,199 @@ $aria2->addUri(
 #### Case: `Can't Download`
 
 ```php
-array(
-  ["id"]=> "1",
-  ["jsonrpc"]=> "2.0",
-  ["result"]=>
-  array(
-    ["completedLength"]=> "0",
-    ["connections"]=> "0",
-    ["dir"]=> "/tmp",
-    ["downloadSpeed"]=> "0",
-    ["errorCode"]=> "1",
-    ["files"]=>
-    array(
-      [0]=>
-      array(
-        ["completedLength"]=> "0",
-        ["index"]=> "1",
-        ["length"]=> "0",
-        ["path"]=> "",
-        ["selected"]=> "true",
-        ["uris"]=>
-        array(
-          [0]=>
-          array(
-            ["status"]=> "used",
-            ["uri"]=> "https://www.google.com.hk/images/srpr/logo3w.png"
-          )
+Array
+(
+    [id] => 1
+    [jsonrpc] => 2.0
+    [result] => Array
+        (
+            [completedLength] => 0
+            [connections] => 0
+            [dir] => /tmp
+            [downloadSpeed] => 0
+            [errorCode] => 1
+            [files] => Array
+                (
+                    [0] => Array
+                        (
+                            [completedLength] => 0
+                            [index] => 1
+                            [length] => 0
+                            [path] => 
+                            [selected] => true
+                            [uris] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [status] => used
+                                            [uri] => https://www.google.com.hk/images/srpr/logo3w.png
+                                        )
+
+                                )
+
+                        )
+
+                )
+            [gid] => 2
+            [numPieces] => 0
+            [pieceLength] => 1048576
+            [status] => error
+            [totalLength] => 0
+            [uploadLength] => 0
+            [uploadSpeed] => 0
         )
-      )
-    ),
-    ["gid"]=> "2",
-    ["numPieces"]=> "0",
-    ["pieceLength"]=> "1048576",
-    ["status"]=> "error",
-    ["totalLength"]=> "0",
-    ["uploadLength"]=> "0",
-    ["uploadSpeed"]=> "0"
-  )
+
 )
 ```
 
 #### Case: `Downloading (Active)`
 
 ```php
-array(
-  ["id"]=> "1",
-  ["jsonrpc"]=> "2.0",
-  ["result"]=>
-  array(
-    ["bitfield"]=> "e0000000",
-    ["completedLength"]=> "3932160",
-    ["connections"]=> "1",
-    ["dir"]=> "/data/files/lixian",
-    ["downloadSpeed"]=> "75972",
-    ["files"]=>
-    array(
-      [0]=>
-      array(
-        ["completedLength"]=> "3145728",
-        ["index"]=> "1",
-        ["length"]=> "31550548",
-        ["path"]=> "/data/files/lixian/[茶经].陆羽.扫描版.pdf",
-        ["selected"]=> "true",
-        ["uris"]=>
-        array(
-          [0]=>
-          array(
-            ["status"]=> "used",
-            ["uri"]=> "http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1"
-          },
-          [1]=>
-          array(
-            ["status"]=> "waiting",
-            ["uri"]=> "http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1"
-          ),
-          [2]=>
-          array(
-            ["status"]=> "waiting",
-            ["uri"]=> "http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1"
-          ),
-          [3]=>
-          array(
-            ["status"]=> "waiting",
-            ["uri"]=> "http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1"
-          ),
-          [4]=>
-          array(
-            ["status"]=> "waiting",
-            ["uri"]=> "http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1"
-          )
+Array
+(
+    [id] => 1
+    [jsonrpc] => 2.0
+    [result] => Array
+        (
+            [bitfield] => e0000000
+            [completedLength] => 3932160
+            [connections] => 1
+            [dir] => /data/files/lixian
+            [downloadSpeed] => 75972
+            [files] => Array
+                (
+                    [0] => Array
+                        (
+                            [completedLength] => 3145728
+                            [index] => 1
+                            [length] => 31550548
+                            [path] => /data/files/lixian/茶经.陆羽.扫描版.pdf
+                            [selected] => true
+                            [uris] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [status] => used
+                                            [uri] => http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [status] => waiting
+                                            [uri] => http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1
+                                        )
+
+                                    [2] => Array
+                                        (
+                                            [status] => waiting
+                                            [uri] => http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1
+                                        )
+
+                                    [3] => Array
+                                        (
+                                            [status] => waiting
+                                            [uri] => http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1
+                                        )
+
+                                    [4] => Array
+                                        (
+                                            [status] => waiting
+                                            [uri] => http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1
+                                        )
+
+                                )
+
+                        )
+
+                )
+            [gid] => 3
+            [numPieces] => 31
+            [pieceLength] => 1048576
+            [status] => active
+            [totalLength] => 31550548
+            [uploadLength] => 0
+            [uploadSpeed] => 0
         )
-      )
-    ),
-    ["gid"]=> "3",
-    ["numPieces"]=> "31",
-    ["pieceLength"]=> "1048576",
-    ["status"]=> "active",
-    ["totalLength"]=> "31550548",
-    ["uploadLength"]=> "0",
-    ["uploadSpeed"]=> "0"
-  )
+
 )
 ```
 
 #### Case: `Downloaded`
 
 ```php
-array(
-  ["id"]=> "1",
-  ["jsonrpc"]=> "2.0",
-  ["result"]=>
-  array(
-    ["bitfield"]=> "fffffffe",
-    ["completedLength"]=> "31550548",
-    ["connections"]=> "0",
-    ["dir"]=> "/data/files/lixian",
-    ["downloadSpeed"]=> "0",
-    ["errorCode"]=> "0",
-    ["files"]=>
-    array(
-      [0]=>
-      array(
-        ["completedLength"]=> "31550548",
-        ["index"]=> "1",
-        ["length"]=> "31550548"
-        ["path"]=> "/data/files/lixian/[茶经].陆羽.扫描版.pdf",
-        ["selected"]=> "true",
-        ["uris"]=>
-        array(
-          [0]=>
-          array(
-            ["status"]=> "used",
-            ["uri"]=> "http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1"
-          ),
-          [1]=>
-          array(
-            ["status"]=> "waiting",
-            ["uri"]=> "http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1"
-          ),
-          [2]=>
-          array(
-            ["status"]=> "waiting",
-            ["uri"]=> "http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1"
-          ),
-          [3]=>
-          array(
-            ["status"]=> "waiting",
-            ["uri"]=> "http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1"
-          ),
-          [4]=>
-          array(
-            ["status"]=> "waiting",
-            ["uri"]=> "http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1"
-          ),
-          [5]=>
-          array(
-            ["status"]=> "waiting",
-            ["uri"]=> "http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1"
-          )
+Array
+(
+    [id] => 1
+    [jsonrpc] => 2.0
+    [result] => Array
+        (
+            [bitfield] => fffffffe
+            [completedLength] => 31550548
+            [connections] => 0
+            [dir] => /data/files/lixian
+            [downloadSpeed] => 0
+            [errorCode] => 0
+            [files] => Array
+                (
+                    [0] => Array
+                        (
+                            [completedLength] => 31550548
+                            [index] => 1
+                            [length] => 31550548
+                            [path] => /data/files/lixian/茶经.陆羽.扫描版.pdf
+                            [selected] => true
+                            [uris] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [status] => used
+                                            [uri] => http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [status] => waiting
+                                            [uri] => http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1
+                                        )
+
+                                    [2] => Array
+                                        (
+                                            [status] => waiting
+                                            [uri] => http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1
+                                        )
+
+                                    [3] => Array
+                                        (
+                                            [status] => waiting
+                                            [uri] => http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1
+                                        )
+
+                                    [4] => Array
+                                        (
+                                            [status] => waiting
+                                            [uri] => http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1
+                                        )
+
+                                    [5] => Array
+                                        (
+                                            [status] => waiting
+                                            [uri] => http://gdl.lixian.vip.xunlei.com/download?fid=zKHWI/O2IbQ07pi/0hPYP1OLwrBUbOEBAAAAACaqKvQbmfR7K7JcbWGT3XQBlDzs&mid=666&threshold=150&tid=3018BA81C31480902DC937770AC2734F&srcid=4&verno=1&g=26AA2AF41B99F47B2BB25C6D6193DD7401943CEC&scn=c7&i=0D2B59F64D6CCBB5A1507A03C3B685BC&t=4&ui=222151634&ti=106821253185&s=31550548&m=0&n=013A830CE1AD5D2EC2DCE21471C9A8C3E8D1D7CA2F64660000&ff=0&co=33BB9833AB0EE7AAEA94105B64C8013F&cm=1
+                                        )
+
+                                )
+
+                        )
+
+                )
+            [gid] => 3
+            [numPieces] => 31
+            [pieceLength] => 1048576
+            [status] => complete
+            [totalLength] => 31550548
+            [uploadLength] => 0
+            [uploadSpeed] => 0
         )
-      )
-    ),
-    ["gid"]=> "3",
-    ["numPieces"]=> "31"
-    ["pieceLength"]=> "1048576",
-    ["status"]=> "complete",
-    ["totalLength"]=> "31550548",
-    ["uploadLength"]=> "0",
-    ["uploadSpeed"]=> "0"
-  )
+
 )
 ```
 
