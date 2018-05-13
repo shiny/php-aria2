@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   aria2:
     image: vimagick/aria2
