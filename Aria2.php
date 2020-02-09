@@ -9,7 +9,7 @@ class Aria2
     function __construct($server='http://127.0.0.1:6800/jsonrpc', $token=null)
     {
         $this->ch = curl_init($server);
-        $this->token = $token;
+        $this->token = ($token !== null) ? 'token:'.$token : null;
         curl_setopt_array($this->ch, [
             CURLOPT_POST=>true,
             CURLOPT_RETURNTRANSFER=>true,
